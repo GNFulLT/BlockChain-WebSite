@@ -1,0 +1,8 @@
+-- Your SQL goes here
+CREATE TABLE gusers(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  surname VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  psw VARCHAR(255) NOT NULL
+);
