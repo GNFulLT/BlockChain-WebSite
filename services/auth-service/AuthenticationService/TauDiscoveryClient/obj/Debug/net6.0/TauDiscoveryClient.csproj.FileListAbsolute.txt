@@ -1,0 +1,12 @@
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\bin\Debug\net6.0\TauDiscoveryClient.deps.json
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\bin\Debug\net6.0\TauDiscoveryClient.dll
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\bin\Debug\net6.0\TauDiscoveryClient.pdb
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.dll
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\refint\TauDiscoveryClient.dll
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\TauDiscoveryClient.pdb
+C:\Users\lenovo\Desktop\services\auth-service\AuthenticationService\TauDiscoveryClient\obj\Debug\net6.0\ref\TauDiscoveryClient.dll

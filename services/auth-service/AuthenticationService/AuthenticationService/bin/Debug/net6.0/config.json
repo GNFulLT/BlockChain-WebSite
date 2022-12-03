@@ -1,0 +1,25 @@
+{
+  "instance": {
+    "hostName": "localhost",
+    "app": "SERVICE",
+    "vipAddress": "myservice",
+    "secureVipAddress": "myservice",
+    "ipAddr": "10.0.0.10",
+    "status": "STARTING",
+    "port": {
+      "$": "44374",
+      "@enabled": "true"
+    },
+    "securePort": {
+      "$": "8443",
+      "@enabled": "true"
+    },
+    "healthCheckUrl": "http://localhost:44374/healthcheck",
+    "statusPageUrl": "http://localhost:44374/status",
+    "homePageUrl": "http://localhost:44374",
+    "dataCenterInfo": {
+      "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+      "name": "MyOwn"
+    }
+  }
+}
