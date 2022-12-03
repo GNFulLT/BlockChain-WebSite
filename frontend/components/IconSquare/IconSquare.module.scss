@@ -1,0 +1,12 @@
+.container
+{
+    width: 60px;
+    height:60px;
+    background: linear-gradient(to right,var(--lColor), var(--rColor));;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}

@@ -4,23 +4,44 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+    background: linear-gradient(131.56deg, rgba(47, 86, 213, 0.054) -26.54%, rgba(82, 115, 220, 0) -14.15%, rgba(94, 128, 234, 0) -9.51%, rgba(69, 107, 227, 0.0332809) 19.46%, rgba(111, 142, 243, 0.0870162) 39.53%, rgba(222, 223, 228, 0.2) 49.14%, rgba(104, 140, 255, 0.2) 75.76%), linear-gradient(149.77deg, rgba(94, 53, 133, 0.8) 17.94%, rgba(94, 53, 133, 0.8) 68.45%, rgba(95, 54, 134, 0) 100.31%);
+    background-blend-mode: difference, lighten;
+    position: relative;
+    height: 1080px;
+    
+    overflow: overlay;
+    overflow-x: hidden;
+  }
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	
+  */
+  border-radius: 10px;
+	background-color: "transparent";
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: "transparent";
 }
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin:0;
+}
+
