@@ -14,7 +14,14 @@ const IconSquare = ({leftColor,rightColor,icon}:IconSquareProps) => {
     let _rightColor = rightColor || "#009AE8";
     return (
     <div style={{ "--lColor": _leftColor,"--rColor":_rightColor} as React.CSSProperties} className={styles["container"]}>
-        {icon}
+        <div className={styles["icon"]}>
+        </div>
+        <div className={styles["glass"]}>
+            <i>
+            {icon}
+            </i>
+        </div>
+        
     </div>
   )
 }

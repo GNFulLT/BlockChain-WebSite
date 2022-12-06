@@ -1,0 +1,24 @@
+.container
+{
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1.875rem;
+    row-gap: 5.625rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+      /* 48em = 768px */
+      
+      @media (min-width: 48em) {
+
+      }
+}
+

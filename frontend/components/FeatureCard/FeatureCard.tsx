@@ -5,11 +5,10 @@ import styles from "./FeatureCard.module.scss"
 interface FeatureCardProps
 {
     headerText:string,
-    content:string,
     icon:JSX.Element
 }
 
-const FeatureCard = ({headerText,content,icon}:FeatureCardProps) => {
+const FeatureCard = ({headerText,icon}:FeatureCardProps) => {
   return (
     <div className={styles["container"]}>
         <div className={styles["mini-container"]}>
@@ -18,7 +17,6 @@ const FeatureCard = ({headerText,content,icon}:FeatureCardProps) => {
             </div>
             <div className={styles["content-box"]}>
                 <h3>{headerText}</h3>
-                <p>{content}</p>
             </div>
         </div>
     </div>
