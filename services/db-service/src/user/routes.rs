@@ -58,7 +58,8 @@ pub struct CreateUserBodyType
     pub name:String,
     pub username:String,
     pub surname:String,
-    pub password:String
+    pub password:String,
+    pub email:String,
 }
 
 
@@ -71,7 +72,8 @@ pub async fn create_user(_body: web::Json<CreateUserBodyType>) -> impl Responder
         name:&_body.name,
         username:&_body.username,
         surname:&_body.surname,
-        psw:&_body.password
+        psw:&_body.password,
+        email:&_body.email
     };
 
 

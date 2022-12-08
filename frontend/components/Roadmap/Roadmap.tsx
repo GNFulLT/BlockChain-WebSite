@@ -27,9 +27,9 @@ const BgHolder = styled("div",{
     backgroundSize:"cover",
     backgroundRepeat:   "no-repeat",
     backgroundPosition: "center center",
-    position:"absolute",
     top:"0px",
-    zIndex:"-999"
+    zIndex:"-999",
+    position:"fixed"
 })
 
 const TimeText = ({children}:any) =>
