@@ -68,13 +68,15 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapGrpcService<UserDataService>();
 });
+
+app.UseHttpsRedirection();
+
 // Configure the HTTP request pipeline.
 
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 PDatabase.UpdateDatabase();
 

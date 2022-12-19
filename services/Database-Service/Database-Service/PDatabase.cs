@@ -31,6 +31,7 @@ namespace Database_Service
         #region Overrides
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //host.docker.internal
             optionsBuilder.UseNpgsql("Host=host.docker.internal;Database=tokendb;Username=postgres;Password=root");
         }
 

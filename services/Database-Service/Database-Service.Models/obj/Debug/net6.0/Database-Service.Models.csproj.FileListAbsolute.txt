@@ -10,3 +10,15 @@ C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service
 C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Models\obj\Debug\net6.0\refint\Database-Service.Models.dll
 C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.pdb
 C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Models\obj\Debug\net6.0\ref\Database-Service.Models.dll
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\bin\Debug\net6.0\Database-Service.Models.deps.json
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\bin\Debug\net6.0\Database-Service.Models.dll
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\bin\Debug\net6.0\Database-Service.Models.pdb
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.csproj.AssemblyReference.cache
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.AssemblyInfo.cs
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.dll
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\refint\Database-Service.Models.dll
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\Database-Service.Models.pdb
+C:\Users\lenovo\Documents\GitHub\BlockChain-WebSite\services\Database-Service\Database-Service.Models\obj\Debug\net6.0\ref\Database-Service.Models.dll

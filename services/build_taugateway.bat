@@ -9,3 +9,4 @@ cd ./taugateway
 
 powershell -Command "& {docker build . -t taugateway}"
 
+pause

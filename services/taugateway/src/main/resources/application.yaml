@@ -1,4 +1,9 @@
+ssl:
+  trust-all: true
+
 spring:
+  resources:
+    static-locations: classpath:/resources/
   servlet:
     multipart:
       max-file-size: 20MB
@@ -11,7 +16,11 @@ spring:
         enabled: true
         loweCaseServiceId: true
     gateway:
+      metadata:
+        h2c: true
       httpclient:
+        ssl:
+          useInsecureTrustManager: true
         pool:
           max-idle-time: 2000ms
       routes:
@@ -39,6 +48,11 @@ logging:
         cloud:
           gateway: TRACE
 server:
+  ssl:
+    enabled: false
+  http2:
+    enabled: true
+    push: true
   connection:
     timeout: 5000
   port: 9000

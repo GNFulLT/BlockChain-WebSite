@@ -9,3 +9,4 @@ cd ./Database-Service
 
 powershell -Command "& {docker build . -f .\Database-Service\Dockerfile -t database-service}"
 
+pause

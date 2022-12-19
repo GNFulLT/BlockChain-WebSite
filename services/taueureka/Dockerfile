@@ -1,8 +1,5 @@
 FROM openjdk:18-jdk-oraclelinux8
 
-COPY . ./app
-WORKDIR /app
-
 RUN microdnf install findutils git
 
 ARG MAVEN_VERSION=3.8.6
@@ -18,6 +15,9 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
   
+COPY . ./app
+WORKDIR /app
+
 RUN mvn package
 CMD ["java","-jar","target/taueureka-0.0.1-SNAPSHOT.jar"]
 

@@ -10,12 +10,19 @@ COPY ["Database-Service/Database-Service.csproj", "Database-Service/"]
 RUN dotnet restore "Database-Service/Database-Service.csproj"
 COPY . .
 WORKDIR "/src/Database-Service"
+
+RUN dotnet dev-certs https --clean
+RUN dotnet dev-certs https --trust
+RUN dotnet dev-certs https -t
+
 RUN dotnet build "Database-Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Database-Service.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
+
 WORKDIR /app
+COPY --from=publish /root/.dotnet/corefx/cryptography/x509stores/my/* /root/.dotnet/corefx/cryptography/x509stores/my/
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Database-Service.dll"]
