@@ -1,0 +1,15 @@
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Grpc.deps.json
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Grpc.dll
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Grpc.pdb
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Models.dll
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Models.pdb
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.csproj.CopyComplete
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.dll
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\refint\Database-Service.Grpc.dll
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\Database-Service.Grpc.pdb
+C:\Users\lenovo\Desktop\NewServices\db-service\Database-Service\Database-Service.Grpc\obj\Debug\net6.0\ref\Database-Service.Grpc.dll

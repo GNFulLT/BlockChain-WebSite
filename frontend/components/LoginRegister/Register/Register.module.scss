@@ -1,0 +1,18 @@
+.container
+{
+    animation: 0.5s entryAnimate;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes entryAnimate
+{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity:1;
+    }
+}

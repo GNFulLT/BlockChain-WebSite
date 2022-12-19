@@ -5,6 +5,7 @@ import icon from "../../public/icon.png"
 import Image from 'next/image';
 import { styled } from '@stitches/react';
 import styles from "./Header.module.scss"
+import LoginCard from '../LoginRegister/LoginCard';
 
 let isSticky = false;
 
@@ -112,9 +113,21 @@ function TauHeader({ links }: HeaderSimpleProps) {
   }));
 
   const { classes, cx } = useStyles();
+  const [showModal,setShowModal] = useState(false);
 
- 
+  const loginClickHandler = () => 
+  {
+    setShowModal(true);
+    document.body.style.overflow = 'hidden';
+    document.getElementsByTagName('html')[0].style.overflow = "hidden";
+  }
+  const modalCloseHandler = () => 
+  {
+    setShowModal(false);
+    document.body.style.overflow = 'overlay';
+    document.getElementsByTagName('html')[0].style.overflow = "overlay";
 
+  }
   return (
     <Header className={styles["main-header"]} ref={headerRef} height={60} mb={120}>
       <Container className={classes.header}>
@@ -143,11 +156,12 @@ function TauHeader({ links }: HeaderSimpleProps) {
         </div>
         <div className={styles["login"]}>
           <ul>
-            <li><a style={{fontSize:"12px"}}>Login</a></li>
+            <li><a onClick={loginClickHandler} style={{fontSize:"12px"}}>Login</a></li>
             <li><a style={{color:"#55468D",fontSize:"12px",backgroundColor:"white",borderRadius:"9999px",padding:"12px 12px"}}>Get Started</a></li>
           </ul>
         </div>
       </Container>
+      <LoginCard isShow={showModal} onClose={modalCloseHandler}></LoginCard>
     </Header>
   );
 }

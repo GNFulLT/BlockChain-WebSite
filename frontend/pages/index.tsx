@@ -10,6 +10,7 @@ import {HiOutlineTicket} from "react-icons/hi"
 import {RiSecurePaymentLine} from "react-icons/ri"
 import HomeBanner from "../components/HomeBanner/HomeBanner"
 import HomeBanner2 from "../components/HomeBanner2/HomeBanner2"
+import LoginCard from "../components/LoginRegister/LoginCard"
 
 export default function Home() {
   let link : LinkProps[] = [{link:"www.google",label:"Dashboard"},

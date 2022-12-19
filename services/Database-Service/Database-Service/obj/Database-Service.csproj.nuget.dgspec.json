@@ -1,0 +1,298 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service\\Database-Service.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\Database-Service.Grpc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\Database-Service.Grpc.csproj",
+        "projectName": "Database-Service.Grpc",
+        "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\Database-Service.Grpc.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj": {
+                "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "protobuf-net.Core": {
+              "target": "Package",
+              "version": "[3.0.101, )"
+            },
+            "protobuf-net.Grpc": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            },
+            "protobuf-net.Grpc.Reflection": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj",
+        "projectName": "Database-Service.Models",
+        "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service\\Database-Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service\\Database-Service.csproj",
+        "projectName": "Database-Service",
+        "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service\\Database-Service.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\Database-Service.Grpc.csproj": {
+                "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Grpc\\Database-Service.Grpc.csproj"
+              },
+              "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj": {
+                "projectPath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Grpc.AspNetCore.Server.Reflection": {
+              "target": "Package",
+              "version": "[2.46.0, )"
+            },
+            "Grpc.Core": {
+              "target": "Package",
+              "version": "[2.46.5, )"
+            },
+            "Grpc.Core.Api": {
+              "target": "Package",
+              "version": "[2.46.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
+            "Microsoft.Web.Administration": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Steeltoe.Discovery.ClientBase": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Steeltoe.Discovery.Eureka": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Steeltoe.Discovery.EurekaBase": {
+              "target": "Package",
+              "version": "[3.0.0-m3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "protobuf-net.Grpc": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            },
+            "protobuf-net.Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            },
+            "protobuf-net.Grpc.AspNetCore.Reflection": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            },
+            "protobuf-net.Grpc.Reflection": {
+              "target": "Package",
+              "version": "[1.0.179, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

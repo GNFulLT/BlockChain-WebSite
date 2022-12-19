@@ -1,0 +1,29 @@
+syntax = "proto3";
+package Database_Service.Grpc.DataServices;
+import "google/protobuf/empty.proto";
+import "protobuf-net/bcl.proto"; // schema for protobuf-net's handling of core .NET types
+
+message DataServiceRequest {
+   int32 Id = 1;
+}
+message DataServiceRequestWithEntity_Session {
+   int32 Id = 1;
+   Session Data = 2;
+}
+message DataServiceResponse_Session {
+   bool IsSuccess = 1;
+   string Message = 2;
+   Session Data = 3;
+}
+message Session {
+   int32 Id = 1;
+   string SessionKey = 2;
+   .bcl.DateTime CreatedAt = 3;
+   int32 UserId = 4;
+}
+service SessionDataService {
+   rpc Create (DataServiceRequestWithEntity_Session) returns (DataServiceResponse_Session);
+   rpc Delete (.google.protobuf.Empty) returns (DataServiceResponse_Session);
+   rpc Get (DataServiceRequest) returns (DataServiceResponse_Session);
+   rpc Update (DataServiceRequestWithEntity_Session) returns (DataServiceResponse_Session);
+}

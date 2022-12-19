@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Database_Service.Grpc</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="protobuf-net.Core" Version="3.0.101" />
+    <PackageReference Include="protobuf-net.Grpc" Version="1.0.179" />
+    <PackageReference Include="protobuf-net.Grpc.Reflection" Version="1.0.179" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Database-Service.Models\Database-Service.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="protos\" />
+  </ItemGroup>
+
+</Project>

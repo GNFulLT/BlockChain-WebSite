@@ -1,0 +1,49 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  application:
+    name: gateway
+  cloud:
+    discovery:
+      locator:
+        enabled: true
+        loweCaseServiceId: true
+    gateway:
+      httpclient:
+        pool:
+          max-idle-time: 2000ms
+      routes:
+        - id: SERVICE
+          uri: lb://SERVICE
+          predicates:
+            - Path=/test/**
+          filters:
+            - RewritePath=/test, /
+        - id: DB-SERVICE	
+          uri: lb://DB-SERVICE
+          predicates:
+            - Path=/db/**
+          filters:
+            - RewritePath=/db, /
+            
+
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+server:
+  connection:
+    timeout: 5000
+  port: 9000
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://taueureka:8761/eureka

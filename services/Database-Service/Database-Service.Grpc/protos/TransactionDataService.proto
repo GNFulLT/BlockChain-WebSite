@@ -1,0 +1,30 @@
+syntax = "proto3";
+package Database_Service.Grpc.DataServices;
+import "google/protobuf/empty.proto";
+import "protobuf-net/bcl.proto"; // schema for protobuf-net's handling of core .NET types
+
+message DataServiceRequest {
+   int32 Id = 1;
+}
+message DataServiceRequestWithEntity_Transaction {
+   int32 Id = 1;
+   Transaction Data = 2;
+}
+message DataServiceResponse_Transaction {
+   bool IsSuccess = 1;
+   string Message = 2;
+   Transaction Data = 3;
+}
+message Transaction {
+   int32 Id = 1;
+   int32 Earning = 2;
+   .bcl.DateTime CreatedAt = 3;
+   int32 UserId = 4;
+   int32 ProductId = 5;
+}
+service TransactionDataService {
+   rpc Create (DataServiceRequestWithEntity_Transaction) returns (DataServiceResponse_Transaction);
+   rpc Delete (.google.protobuf.Empty) returns (DataServiceResponse_Transaction);
+   rpc Get (DataServiceRequest) returns (DataServiceResponse_Transaction);
+   rpc Update (DataServiceRequestWithEntity_Transaction) returns (DataServiceResponse_Transaction);
+}
