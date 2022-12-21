@@ -26,7 +26,6 @@ namespace Database_Service.Services
         {
             try
             {
-                Grpc.GrpcUtils.ValidateRequest(request.Data,nameof(request.Data));
                 dbSet.Add(request.Data);
                 DbContext.SaveChanges();
                 _logger.LogInformation("Veri Girildi");
@@ -39,9 +38,19 @@ namespace Database_Service.Services
             }
         }
 
-        public ValueTask<DataServiceResponse<T?>> Delete(CallContext context = default)
+        public ValueTask<DataServiceResponse<T?>> Delete(DataServiceRequest req,CallContext context = default)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbSet.Remove(dbSet.First(e => e.Id == req.Id));
+                DbContext.SaveChanges();
+                return ValueTask.FromResult(new DataServiceResponse<T?>("Deleted", null, true));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("While try to delete : \n"+ex.Message);
+                return ValueTask.FromResult(new DataServiceResponse<T?>(ex.Message, null, false));
+            }
         }
 
         public ValueTask<DataServiceResponse<T?>> Get(DataServiceRequest req, CallContext context = default)
@@ -56,7 +65,27 @@ namespace Database_Service.Services
 
         public ValueTask<DataServiceResponse<T?>> Update(DataServiceRequestWithEntity<T> req, CallContext context = default)
         {
-            throw new NotImplementedException();
+            try 
+            { 
+                if(req.Id != req.Data.Id)
+                {
+                    return ValueTask.FromResult(new DataServiceResponse<T?>("Cannot update the id", null, false));
+                }
+                var entity = dbSet.Find(req.Id);
+                if(entity is null)
+                {
+                    return ValueTask.FromResult(new DataServiceResponse<T?>("There is no entity like that", null, false));
+                }
+                dbSet.Entry(entity).CurrentValues.SetValues(req.Data);
+
+                DbContext.SaveChanges();
+                return ValueTask.FromResult(new DataServiceResponse<T?>("Entity Updated", null, false));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected Error while trying to update an entity : \n"+ex.Message);
+                return ValueTask.FromResult(new DataServiceResponse<T?>("Unexpected Server Error", null, false));
+            }
         }
     }
 }

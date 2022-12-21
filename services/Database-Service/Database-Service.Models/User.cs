@@ -17,12 +17,12 @@ namespace Database_Service.Models
         [Column("name")]
         [MaxLength(255)]
         [DataMember(Order = 2)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("surname")]
         [MaxLength(255)]
         [DataMember(Order = 3)]
-        public string Surname { get ; set; }
+        public string? Surname { get ; set; }
 
         [Column("username")]
         [MaxLength(255)]

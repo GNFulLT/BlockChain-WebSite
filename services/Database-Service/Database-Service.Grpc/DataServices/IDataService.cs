@@ -18,7 +18,7 @@ namespace Database_Service.Grpc.DataServices
         ValueTask<DataServiceResponse<T?>> Update(DataServiceRequestWithEntity<T> req, CallContext context = default);
 
         [Operation]
-        ValueTask<DataServiceResponse<T?>> Delete(CallContext context = default);
+        ValueTask<DataServiceResponse<T?>> Delete(DataServiceRequest req,CallContext context = default);
 
         [Operation]
         ValueTask<DataServiceResponse<T?>> Get(DataServiceRequest req, CallContext context = default);

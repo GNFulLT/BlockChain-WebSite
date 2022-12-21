@@ -93,7 +93,7 @@ namespace Database_Service.Grpc
                .AsParallel()
                .ForAll((prop) =>
                {
-                   if (prop.GetValue(reqObj) is null)
+                   if (prop.GetValue(reqObj) is null && prop.PropertyType.Name.IndexOf("Nullable`", StringComparison.Ordinal) > -1)
                    {
                        lock(builder)
                        {
