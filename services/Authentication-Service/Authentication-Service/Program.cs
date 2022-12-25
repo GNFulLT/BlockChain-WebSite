@@ -1,6 +1,7 @@
-using Auth0.AspNetCore.Authentication;
 using Auth0.AuthenticationApi;
 using Auth0.AuthenticationApi.Models;
+using Auth0.Core.Exceptions;
+using Auth0.OidcClient;
 using Authentication_Service;
 using Authentication_Service.Request;
 using Authentication_Service.Response;
@@ -9,16 +10,14 @@ using Database_Service.Grpc.Requests;
 using Database_Service.Models;
 using Grpc.Core;
 using Grpc.Net.Client;
-using Grpc.Net.Client.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using ProtoBuf.Grpc.Client;
-using Steeltoe.Discovery;
 using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
+const string AUTH_KEY = "TAU_AUTH_TOKEN";
 
 
 // Add services to the container.
@@ -67,34 +66,74 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/testgrpc", async () =>
-{
-   
-
-    using var channel = GrpcChannel.ForAddress("http://localhost:3333/", new GrpcChannelOptions
-    {
-        Credentials = ChannelCredentials.Insecure,
-    });
-    var client = channel.CreateGrpcService<IUserDataService>();
-    var res = await client.Get(new Database_Service.Grpc.Requests.DataServiceRequest()
-    {
-        Id = 1
-    });
-    Console.WriteLine($"Greeting: {res.Message}");
-    var regi = new RegisterRequest();
-
-    return res.Data.Email + res.Data.Name + res.Data.Username; 
-});
-
 GrpcChannel dbChannel = GrpcChannel.ForAddress("http://localhost:3333/", new GrpcChannelOptions
 {
     Credentials = ChannelCredentials.Insecure,
 });
 
+
+app.MapGet("/authorize", async (HttpContext context) =>
+{
+    var apiClient = new AuthenticationApiClient($"{conf.Domain}");
+
+    try
+    {
+        bool doesHave = context.Request.Cookies.TryGetValue(AUTH_KEY,out string? accessToken);
+        if(!doesHave)
+            return Results.NotFound(null);
+
+        var user = await apiClient.GetUserInfoAsync(accessToken);
+
+        return Results.Accepted(value: user);
+    }
+    catch(Exception ex)
+    {
+        return Results.NotFound(null);
+    }
+   
+});
+
+app.MapGet("/logout", async () =>
+{
+
+}).RequireAuthorization("tautoken:read-write");
+
+app.MapGet("/login", async (HttpContext context,[FromBody] LoginRequest req) =>
+{
+    var apiClient = new AuthenticationApiClient($"{conf.Domain}");
+    
+    var loginReq = new ResourceOwnerTokenRequest();
+    loginReq.Username = req.Username;
+    loginReq.Password = req.Password;
+    loginReq.ClientId = conf.ClientId;
+    loginReq.ClientSecret = conf.ClientSecret;
+    loginReq.Realm = "TauTokenAuthDB";
+    try
+    {
+        var res = await apiClient.GetTokenAsync(loginReq);
+        context.Response.Cookies.Append(AUTH_KEY,res.AccessToken);
+
+        return Results.Ok(res);
+    }
+    catch(Exception ex)
+    {
+        if (ex is ErrorApiException)
+            return Results.BadRequest((ex as ErrorApiException)!.ApiError.Error);
+        return Results.BadRequest(ex.Message);
+    }
+
+
+
+
+});
+
+
 app.MapGet("/register", async ([FromBody] RegisterRequest reqq) =>
 {
 
     var apiClient = new AuthenticationApiClient($"{conf.Domain}");
+
+    var service = dbChannel.CreateGrpcService<IUserDataService>();
 
     var request = new SignupUserRequest
     {
@@ -105,10 +144,10 @@ app.MapGet("/register", async ([FromBody] RegisterRequest reqq) =>
         Connection = "TauTokenAuthDB"
     };
 
+    int? CreatedId = null;
+
     try
     {
-//        var res = await apiClient.SignupUserAsync(request);
-        var service = dbChannel.CreateGrpcService<IUserDataService>();
 
         var req = new DataServiceRequestWithEntity<User>()
         {
@@ -126,10 +165,38 @@ app.MapGet("/register", async ([FromBody] RegisterRequest reqq) =>
             return Results.StatusCode(500);
         }
 
-        return Results.CreatedAtRoute(value: new RegisterResponse("User Registered", null));
+        CreatedId = s.Data.Id;
+        var res = await apiClient.SignupUserAsync(request);
+        
+        return Results.Ok(value: new RegisterResponse("User Registered", null));
     }
     catch(Exception ex)
     {
+        if(CreatedId is not null)
+        {
+            var res =  await service.Delete(new DataServiceRequest { Id = (int)CreatedId });
+            bool successed = false;
+            if(!res.IsSuccess)
+            {
+                for(int i = 0;i<3;i++)
+                {
+                    res = await service.Delete(new DataServiceRequest { Id = (int)CreatedId });
+                    if(res.IsSuccess)
+                    {
+                        successed = true;
+                        break;
+                    }
+                }
+
+                if(!successed)
+                {
+                    Console.WriteLine("Silemedi�im de�er var �abuk bak id si : "+CreatedId);
+                }
+            }
+        }
+
+        if (ex is ErrorApiException)
+            return Results.BadRequest((ex as ErrorApiException)!.ApiError.Error);
         return Results.BadRequest(ex.Message);
     }
     
@@ -137,29 +204,5 @@ app.MapGet("/register", async ([FromBody] RegisterRequest reqq) =>
 });
 
 
-app.MapGet("/weatherforecast", () =>
-{
-    /*
-    var dclient =  app.Services.GetRequiredService<IDiscoveryClient>();
-
-    var instances = dclient.GetInstances("DB-SERVICE");
-    */
-
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateTime.Now.AddDays(index),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.Run();
 
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

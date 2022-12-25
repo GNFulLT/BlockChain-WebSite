@@ -67,6 +67,12 @@ app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapGrpcService<UserDataService>();
+    endpoints.MapGrpcService<ProductDataService>();
+    endpoints.MapGrpcService<QrDataService>();
+    endpoints.MapGrpcService<SessionDataService>();
+    endpoints.MapGrpcService<TransactionDataService>();
+    endpoints.MapGrpcService<WalletDataService>();
+
 });
 
 app.UseHttpsRedirection();

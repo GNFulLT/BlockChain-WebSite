@@ -39,9 +39,10 @@ namespace Database_Service
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(entity =>
-            {/*
+            {
                 entity.Property(e => e.CreatedAt)
-                    .HasDefaultValueSql("CURRENT_TIMESTAMP");*/
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
             });
 
             modelBuilder.Entity<Qr>(entity =>

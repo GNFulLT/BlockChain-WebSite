@@ -18,6 +18,19 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "protobuf-net/3.0.101": {
         "type": "package",
         "dependencies": {
@@ -111,6 +124,9 @@
       "Database-Service.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+        },
         "compile": {
           "bin/placeholder/Database-Service.Models.dll": {}
         },
@@ -140,6 +156,20 @@
         "lib/netstandard2.0/Grpc.Core.Api.pdb",
         "lib/netstandard2.0/Grpc.Core.Api.xml",
         "packageIcon.png"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.0": {
+      "sha512": "Pfu3Zjj5+d2Gt27oE9dpGiF/VobBB+s5ogrfI9sBsXQE1SG49RqVz5+IyeNnzhyejFrPIQsPDRMchhcojy4Hbw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
+        "microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
     "protobuf-net/3.0.101": {

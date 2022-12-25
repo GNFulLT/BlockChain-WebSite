@@ -15,7 +15,7 @@ namespace Database_Service.Models
         [Column("session_key")]
         [MaxLength(255)]
         public string SessionKey { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now();
 
         [ForeignKey("User")]
         [Column("user_id")]

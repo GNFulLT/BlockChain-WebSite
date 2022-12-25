@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
@@ -6,6 +7,7 @@ namespace Database_Service.Models
 {
     [Table("session_table")]
     [DataContract]
+    [Index(nameof(UserId), IsUnique = true)]
     public class Session : IDatabaseModel
     {
 

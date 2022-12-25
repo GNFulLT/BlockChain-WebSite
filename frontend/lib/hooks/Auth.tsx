@@ -1,4 +1,4 @@
-//import axios from 'axios';
+import axios from 'axios';
 import * as React from 'react'
 import { CookieAuthType } from '../types/CookieType';
 
@@ -43,16 +43,19 @@ const AuthProvider : React.FC<any> = ({children}) =>
     },[])
 
     const signIn = async (email:string,password:string) => {
-        /*const reqData = {email,password};
-        const res = await axios.post("/api/users/login",reqData);
-        if(res.status == 200)
-        {
-            setAuth(res.data as CookieAuthType);
+        const reqData = {Username:email,Password:password};
+        try
+        {   
+            console.log("Trying to login");
+            const res = await axios.post("http://localhost:9000/auth/login",reqData);
+            console.log(res);
         }
-        else
+        catch(ex)
         {
-            throw "Can Login";
-        }*/
+            console.log("Error: ")
+            console.log(ex);
+        }
+        
     } 
 
     const signOut = async () => {

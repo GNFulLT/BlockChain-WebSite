@@ -12,7 +12,7 @@ namespace Database_Service.Models
         public string QrImagePath { get; set; }
 
         [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now();
 
         [ForeignKey("User")]
         [Column("user_id")]

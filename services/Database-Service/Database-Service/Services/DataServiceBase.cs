@@ -11,9 +11,9 @@ namespace Database_Service.Services
     public abstract class DataServiceBase<T> : IDataService<T> where T : class,IDatabaseModel
     {
 
-        DbContext DbContext;
-        private DbSet<T> dbSet;
-        private ILogger _logger;
+        protected DbContext DbContext;
+        protected DbSet<T> dbSet;
+        protected ILogger _logger;
         public DataServiceBase(DbContext context,ILogger logger)
         {
             DbContext = context;

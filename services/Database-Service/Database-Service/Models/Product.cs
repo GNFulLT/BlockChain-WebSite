@@ -20,9 +20,9 @@ namespace Database_Service.Models
         public int CarbonValue { get; set; }
 
         [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now();
 
         [Column("updated_at")]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.Now();
     }
 }

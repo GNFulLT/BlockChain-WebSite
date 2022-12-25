@@ -44,7 +44,7 @@ namespace Database_Service.Models
 
         [Column("created_at")]
         [DataMember(Order = 7)]
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now();
 
     }
 }

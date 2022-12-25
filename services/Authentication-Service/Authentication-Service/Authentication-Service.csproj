@@ -11,6 +11,9 @@
   <ItemGroup>
     <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.0.4" />
     <PackageReference Include="Auth0.AuthenticationApi" Version="7.17.4" />
+    <PackageReference Include="Auth0.Core" Version="7.17.4" />
+    <PackageReference Include="Auth0.ManagementApi" Version="7.17.4" />
+    <PackageReference Include="Auth0.OidcClient.Core" Version="3.2.6" />
     <PackageReference Include="Grpc.Net.Client" Version="2.51.0-pre1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.12" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
@@ -26,10 +29,10 @@
 
   <ItemGroup>
     <Reference Include="Database-Service.Grpc">
-      <HintPath>..\..\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Grpc.dll</HintPath>
+      <HintPath>..\libs\Database-Service.Grpc.dll</HintPath>
     </Reference>
     <Reference Include="Database-Service.Models">
-      <HintPath>..\..\Database-Service\Database-Service.Grpc\bin\Debug\net6.0\Database-Service.Models.dll</HintPath>
+      <HintPath>..\libs\Database-Service.Models.dll</HintPath>
     </Reference>
   </ItemGroup>
 

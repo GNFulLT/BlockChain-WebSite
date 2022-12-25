@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
@@ -8,10 +9,13 @@ namespace Database_Service.Models
 {
     [Table("user_table")]
     [DataContract]
+    [Index(nameof(Username), IsUnique = true)]
+    [Index(nameof(Email), IsUnique = true)]
     public class User : IDatabaseModel
     {
         [Column("id")]
         [DataMember(Order = 1)]
+
         public int Id { get; set; }
 
         [Column("name")]

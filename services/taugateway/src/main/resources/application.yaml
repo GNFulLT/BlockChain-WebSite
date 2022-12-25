@@ -24,12 +24,18 @@ spring:
         pool:
           max-idle-time: 2000ms
       routes:
-        - id: SERVICE
-          uri: lb://SERVICE
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/test/**
+            - Path=/auth/**
           filters:
-            - RewritePath=/test, /
+            - RewritePath=/auth, /
+        - id: WALLET-SERVICE	
+          uri: lb://WALLET-SERVICE	
+          predicates:
+            - Path=/wallet/**
+          filters:
+            - RewritePath=/wallet, /
         - id: DB-SERVICE	
           uri: lb://DB-SERVICE
           predicates:
@@ -60,4 +66,4 @@ eureka:
   client:
     registerWithEureka: true
     serviceUrl:
-      defaultZone: http://taueureka:8761/eureka
+      defaultZone: http://localhost:8761/eureka

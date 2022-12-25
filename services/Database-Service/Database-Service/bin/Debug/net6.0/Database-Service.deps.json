@@ -1750,6 +1750,9 @@
         }
       },
       "Database-Service.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.0"
+        },
         "runtime": {
           "Database-Service.Models.dll": {}
         }

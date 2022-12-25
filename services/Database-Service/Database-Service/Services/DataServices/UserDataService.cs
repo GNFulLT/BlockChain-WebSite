@@ -1,4 +1,6 @@
 ﻿using Database_Service.Grpc.DataServices;
+using Database_Service.Grpc.Requests;
+using Database_Service.Grpc.Responses;
 using Database_Service.Models;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
@@ -10,28 +12,23 @@ namespace Database_Service.Services.DataServices
         public UserDataService(DbContext db,ILogger<UserDataService> logger) : base(db,logger)
         {
         }
-        /*
-        public ValueTask<User> Create(GetRequestWithEntity<User> request, CallContext context = default)
-        {
-            throw new NotImplementedException();
-        }
 
-        public ValueTask<User> Delete(GetRequest req, CallContext context = default)
+        public async ValueTask<DataServiceResponse<User?>> GetByUsername(UserUsernameRequest req, CallContext context = default)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var user = await dbSet.FirstOrDefaultAsync(user => user.Username.Equals(req.Username));
+                if(user is default(User))
+                    return new DataServiceResponse<User?>("There is no user with that username",null,false);
 
-        public ValueTask<User> Get(GetRequest req, CallContext context = default)
-        {
-            User user = set.Find(req.Id);
-
-            return ValueTask.FromResult<User>(user)!;
+                return new DataServiceResponse<User?>("Found",user,true);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError("Unknown exception throwed while trying to find an user with that username : "+req.Username);
+                _logger.LogError(ex.ToString());
+                return new DataServiceResponse<User?>("Unknown server exception",null,false);
+            }
         }
-
-        public ValueTask<User> Update(GetRequestWithEntity<User> e, CallContext context = default)
-        {
-            throw new NotImplementedException();
-        }
-        */
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Database_Service.Models
 {
     [Table("wallet_table")]
     [DataContract]
+    [Index(nameof(UserId),IsUnique = true)]
     public class Wallet : IDatabaseModel
     {
         [Key]

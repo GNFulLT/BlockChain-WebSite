@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace Database_Service.Models
 {
     [Table("qr_table")]
     [DataContract]
+    [Index(nameof(UserId), IsUnique = true)]
     public class Qr : IDatabaseModel
     {
         [Column("id")]
