@@ -93,12 +93,12 @@ app.MapGet("/authorize", async (HttpContext context) =>
    
 });
 
-app.MapGet("/logout", async () =>
+app.MapPost("/logout", async () =>
 {
 
 }).RequireAuthorization("tautoken:read-write");
 
-app.MapGet("/login", async (HttpContext context,[FromBody] LoginRequest req) =>
+app.MapPost("/login", async (HttpContext context,[FromBody] LoginRequest req) =>
 {
     var apiClient = new AuthenticationApiClient($"{conf.Domain}");
     
@@ -128,7 +128,7 @@ app.MapGet("/login", async (HttpContext context,[FromBody] LoginRequest req) =>
 });
 
 
-app.MapGet("/register", async ([FromBody] RegisterRequest reqq) =>
+app.MapPost("/register", async ([FromBody] RegisterRequest reqq) =>
 {
 
     var apiClient = new AuthenticationApiClient($"{conf.Domain}");
