@@ -41,7 +41,7 @@ def objectDetection(dateValue):
     colors = np.array(colors)
     colors = np.tile(colors,(18,1))
     
-    model = cv2.dnn.readNetFromDarknet("../pretrained_model/yolov3.cfg","../pretrained_model/yolo_v3.weights")
+    model = cv2.dnn.readNetFromDarknet("module/yolov3.cfg","module/yolo_v3.weights")
     layers = model.getLayerNames()
     output_layer = [layers[layer - 1]for layer in model.getUnconnectedOutLayers()]
     model.setInput(img_blob)
