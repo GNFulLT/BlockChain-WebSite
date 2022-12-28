@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hsniu6sGetEYjmU+qJUKHC/DPNn6O1VT90+gX42B2RouJSF/3Xyhst33XbnnyN81l4q8cSYu2rKb+S+w9Us61Q==",
+  "dgSpecHash": "/dRzSZSX2iR4/jfTqvkK0ICFY+iRvHPozVOf4fCBYbaijXCweGLVm8X3TMJpKx84UPKt0QdCm/dTXUEawVOsmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lenovo\\Documents\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj",
+  "projectFilePath": "C:\\Users\\gnfug\\OneDrive\\Belgeler\\GitHub\\BlockChain-WebSite\\services\\Database-Service\\Database-Service.Models\\Database-Service.Models.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
+    "C:\\Users\\gnfug\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

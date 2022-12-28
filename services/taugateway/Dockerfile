@@ -19,8 +19,11 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 COPY . ./app
 WORKDIR /app
 
+RUN mvn package
+
 COPY ./cassert/ /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/
   
-RUN mvn package
+COPY ./src/main/resources  ./src/main/resources
+
 CMD ["java","-jar","target/tautoken-zuul-0.0.1-SNAPSHOT.jar"]
 

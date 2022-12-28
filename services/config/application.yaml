@@ -50,11 +50,9 @@ spring:
             - Path=/db/**
           filters:
             - RewritePath=/db, /
-        - uri: http://host.docker.internal:9003
-          predicates:
-            - Path=/dtc/**
-          filters:
-            - RewritePath=/dtc, /
+            
+
+
 logging:
   level:
     reactor:
@@ -70,7 +68,7 @@ server:
     enabled: true
     push: true
   connection:
-    timeout: 50000
+    timeout: 5000
   port: 9000
 eureka:
   client:

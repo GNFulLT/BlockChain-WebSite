@@ -26,6 +26,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDiscoveryClient(builder.Configuration);
 builder.Services.AddAuthorization();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 var conf = builder.Configuration.GetSection("Auth0").Get<Auth0Config>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -39,20 +41,30 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          };
      });
 
+builder.Services.AddLogging(logging =>
+{
+    logging.AddConsole();
+});
+
 builder.Services.AddAuthorization(o =>
 {
     o.AddPolicy("tautoken:read-write", p => p.
         RequireAuthenticatedUser().
         RequireClaim("scope", "tautoken:read-write"));
 });
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 
-
+app.UseCors(x => x
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins separated with comma
+                    .AllowCredentials()); // allow credentials
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -66,29 +78,42 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-GrpcChannel dbChannel = GrpcChannel.ForAddress("http://localhost:3333/", new GrpcChannelOptions
+GrpcChannel dbChannel = GrpcChannel.ForAddress("http://host.docker.internal:3333/", new GrpcChannelOptions
 {
     Credentials = ChannelCredentials.Insecure,
 });
 
 
-app.MapGet("/authorize", async (HttpContext context) =>
+app.MapPost("/permit", async ([FromBody] PermitRequest token) =>
 {
-    var apiClient = new AuthenticationApiClient($"{conf.Domain}");
+    Console.WriteLine("Request Income");
+    if(token is null)
+    {
+        return Results.BadRequest("AccessToken is not given");
 
+    }
+    Console.WriteLine("AccessToken var ve bu : "+token.AccessToken);
+    var apiClient = new AuthenticationApiClient($"{conf.Domain}");
+    Console.WriteLine("Bağlantı kurultu auth0 ile domain : "+conf.Domain);
     try
     {
-        bool doesHave = context.Request.Cookies.TryGetValue(AUTH_KEY,out string? accessToken);
-        if(!doesHave)
-            return Results.NotFound(null);
+        var user = await apiClient.GetUserInfoAsync(token.AccessToken);
+        Console.WriteLine("User getirildi : "+user);
+        var service = dbChannel.CreateGrpcService<IUserDataService>();
 
-        var user = await apiClient.GetUserInfoAsync(accessToken);
+        var dbRes = await service.GetByUsername(new UserUsernameRequest() { Username = user.NickName });
 
-        return Results.Accepted(value: user);
+        Console.WriteLine(user.NickName);
+        if(!dbRes.IsSuccess)
+        {
+            Console.WriteLine("User getirilmedi : "+dbRes.Message);
+        }
+        Console.WriteLine("Başarıyla Getirildi");
+        return Results.Ok(dbRes.Data);
     }
     catch(Exception ex)
     {
-        return Results.NotFound(null);
+        return Results.NotFound("Unknown Server Exception");
     }
    
 });
@@ -113,7 +138,7 @@ app.MapPost("/login", async (HttpContext context,[FromBody] LoginRequest req) =>
         var res = await apiClient.GetTokenAsync(loginReq);
         context.Response.Cookies.Append(AUTH_KEY,res.AccessToken);
 
-        return Results.Ok(res);
+        return Results.Ok(new {token=res,username=req.Username});
     }
     catch(Exception ex)
     {
@@ -141,7 +166,8 @@ app.MapPost("/register", async ([FromBody] RegisterRequest reqq) =>
         Email = reqq.Email,
         Password = reqq.Password,
         Username = reqq.Username,
-        Connection = "TauTokenAuthDB"
+        Connection = "TauTokenAuthDB",
+        Nickname= reqq.Username
     };
 
     int? CreatedId = null;
